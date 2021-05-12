@@ -12,14 +12,13 @@ const Login = ({ setAlert, alertMsg, alertType, login, history }) => {
     const [loading, setloading] = useState(false)
 
     const loginHandler = async() => {
-        setloading(true)
         if (username.trim().length === 0) {
             setAlert('danger', 'Please enter username')
         } else if (password.trim().length === 0) {
             setAlert('danger', 'Please enter password')
         } else {
             const obj = { username, password }
-
+            setLoading(true)
             //send login request
             await login(obj, history)
             //following state update is done on a unmounted component, will be fixed later
@@ -29,7 +28,7 @@ const Login = ({ setAlert, alertMsg, alertType, login, history }) => {
 
     //specify alert classes based on alert types
     let alertCssClass = ['alert my-bottom-1']
-    if (alertType === 'danger') { alertCssClass.push('alert-dark') }
+    if (alertType === 'danger') { alertCssClass.push('alert-danger') }
 
     if (loading) return <Spinner />
 
