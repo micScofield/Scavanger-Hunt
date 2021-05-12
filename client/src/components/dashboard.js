@@ -42,7 +42,7 @@ const Dashboard = ({ alertMsg, alertType, setAlert, getBranches, loading, branch
 
     //alert classes
     let alertCssClass = ['alert my-bottom-1']
-    if (alertType === 'danger') { alertCssClass.push('alert-dark') }
+    if (alertType === 'danger') { alertCssClass.push('alert-danger') }
 
     if (loading) return <Spinner />
 
